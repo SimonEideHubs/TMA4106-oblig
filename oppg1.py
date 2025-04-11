@@ -26,7 +26,7 @@ plt.legend()
 plt.savefig("oppg1_1", dpi=200)
 plt.show()
 
-results = [a - np.exp(1.5) for a in results]
+results = [abs(a - np.exp(1.5)) for a in results]
 print(min(results))
 
 plt.figure()
