@@ -24,10 +24,10 @@ plt.legend()
 plt.savefig("oppg2_1", dpi=200)
 plt.show()
 
-results = [a - np.exp(1.5) for a in results]
+results = [abs(a - np.exp(1.5)) for a in results]
 
 plt.figure()
-plt.loglog(steps[:-1], results[:-1], marker="o", label="Estimat per steglengde")
+plt.loglog(steps[:-1], results[:-1], marker="o", label="Avvik per steglengde")
 plt.hlines(np.exp(1.5), steps[0], steps[-1], linestyle="dotted", color="black", label=f"Forventet: {np.exp(1.5)}")
 plt.xlabel("Steglengde")
 plt.ylabel("Avvik")
