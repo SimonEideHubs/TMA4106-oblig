@@ -30,7 +30,7 @@ results = [abs(a - np.exp(1.5)) for a in results]
 print(min(results))
 
 plt.figure()
-plt.loglog(steps, results, marker="o", label="Estimat per steglengde")
+plt.loglog(steps, results, marker="o", label="Avvik per steglengde")
 # plt.hlines(0, steps[0], steps[-1], linestyle="dotted", color="black", label="0")
 plt.xlabel("steglengde")
 plt.ylabel("Avvik")
