@@ -5,7 +5,7 @@ from matplotlib.animation import FuncAnimation
 
 # parametre for metoden (Set rimelige verdier for rimelige resultater)
 d = np.pi
-N = 30                      # punkter i rom
+N = 100                      # punkter i rom
 h = d / N                   # punkter i tid
 k = 0.001                   # steglengde i tid
 num_frames = 200            # antall steg i tid
@@ -41,17 +41,17 @@ def update(frame):
     return line,
 
 fig, ax = plt.subplots()
-line, = ax.plot(x, u, color='red', label="Varmefordeling")
+line, = ax.plot(x, u, color='red', label='Varmefordeling')
 ax.set_ylim(-1.1, 1.1)
 ax.set_xlim(0, d)
-ax.set_xlabel("x")
-ax.set_ylabel("Temperatur u(x, t)")
-ax.set_title("1D Varmelikning: eksplisitt Euler")
+ax.set_xlabel('x')
+ax.set_ylabel('Temperatur u(x, t)')
+ax.set_title('1D Varmelikning: eksplisitt Euler')
 ax.legend()
 
 interval = 50
 fps = 1000/interval
 
 anim = FuncAnimation(fig, update, frames=num_frames, interval=interval, blit=True)
-anim.save("oppg4.gif", writer="pillow", fps=fps)
+anim.save(f'oppg4_{N}.gif', writer='pillow', fps=fps)
 plt.show()

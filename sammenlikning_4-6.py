@@ -9,10 +9,10 @@ from numpy.linalg import solve
 '''
 
 d = np.pi
-N = 30               # punkter i rom
-h = d / N           # punkter i tid
-k = 0.001            # steglengde i tid
-num_frames = 200      # antall steg i tid
+N = 50                      # punkter i rom
+h = d / N                   # punkter i tid
+k = 0.001                   # steglengde i tid
+num_frames = 200            # antall steg i tid
 x = np.linspace(0, d, N+1)
 
 
@@ -129,5 +129,5 @@ interval = 50
 fps = 1000/interval
 
 anim = FuncAnimation(fig, update, frames=num_frames, interval=interval, blit=True)
-anim.save("sammenlikning.gif", writer="pillow", fps=fps)
+anim.save(f'sammenlikning-{N}.gif', writer='pillow', fps=fps)
 plt.show()
