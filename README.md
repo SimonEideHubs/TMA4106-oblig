@@ -45,7 +45,7 @@ Varmelikningen estimeres her med tre forskjellige metoder:
     $(I+\lambda A)\mathbf{u}^{n+1}=\mathbf{u}^n$
   
 - Crank-Nicolson - Noe analogt med sentraldifferansen bruker denne metoden gjennomsnittet av steg for å balansere ut ugjevnheter fra enkeltsteg. På denne måten blir resultatet ganske likt med den implisitte metoden, men også       litt hermende av sentraldifferansen: \
-    $ (I+\frac{\lambda}{2}A)u^{n+1}=(I-\frac{\lambda}{2}A)u^n$
+    $(I+\frac{\lambda}{2}A)u^{n+1}=(I-\frac{\lambda}{2}A)u^n$
 
 
 
