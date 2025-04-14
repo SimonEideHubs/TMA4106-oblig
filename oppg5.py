@@ -27,11 +27,11 @@ for i in range(M):
 
 # --- Set up the figure for animation ---
 fig, ax = plt.subplots()
-line, = ax.plot(x, u, label="u(x,t)")
+line, = ax.plot(x, u, label="Temperatur u(x, t)")
 ax.set_xlim(0, d)
 ax.set_ylim(-1, 1)
 ax.set_xlabel("x")
-ax.set_ylabel("u(x,t)")
+ax.set_ylabel("Temperatur u(x, t)")
 ax.set_title("Heat Equation (Implicit Euler)")
 ax.legend()
 
@@ -53,7 +53,9 @@ def update(frame):
     line.set_ydata(u)
     return (line,)
 
-# Create the animation
-anim = FuncAnimation(fig, update, frames=num_frames, interval=100, blit=True)
+interval = 50
+fps = 1000/interval
 
+anim = FuncAnimation(fig, update, frames=num_frames, interval=interval, blit=True)
+anim.save("oppg5.gif", writer="pillow", fps=fps)
 plt.show()

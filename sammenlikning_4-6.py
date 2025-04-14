@@ -129,5 +129,5 @@ interval = 50
 fps = 1000/interval
 
 anim = FuncAnimation(fig, update, frames=num_frames, interval=interval, blit=True)
-anim.save("animation.gif", writer="pillow", fps=fps)
+anim.save("sammenlikning.gif", writer="pillow", fps=fps)
 plt.show()

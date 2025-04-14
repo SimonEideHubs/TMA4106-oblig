@@ -45,12 +45,13 @@ line, = ax.plot(x, u, color='red', label="Varmefordeling")
 ax.set_ylim(-1.1, 1.1)
 ax.set_xlim(0, d)
 ax.set_xlabel("x")
-ax.set_ylabel("u(x,t)")
+ax.set_ylabel("Temperatur u(x, t)")
 ax.set_title("1D Varmelikning: eksplisitt Euler")
 ax.legend()
 
+interval = 50
+fps = 1000/interval
 
-
-anim = FuncAnimation(fig, update, frames=num_frames, interval=1, blit=True)
-# anim.save('1D varmelikning - Eksplisitt Euler.mp4', fps=30, extra_args=['-vcodec', 'libx264']) # Bare kjør når det trengs å lagres, det tar en del tid
+anim = FuncAnimation(fig, update, frames=num_frames, interval=interval, blit=True)
+anim.save("oppg4.gif", writer="pillow", fps=fps)
 plt.show()
