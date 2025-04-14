@@ -5,11 +5,11 @@ from numpy.linalg import solve
 
 
 # parametre for metoden (Set rimelige verdier for rimelige resultater)
-d = 3
-N = 1000                     # Number of intervals => N+1 grid points in [0,1]
-h = d / N                   # Spatial step size
-k = 0.00001                   # Time step
-num_steps = 500             # Number of frames in the animation
+d = np.pi
+N = 30                      # punkter i rom
+h = d / N                   # punkter i tid
+k = 0.001                   # steglengde i tid
+num_frames = 200            # antall steg i tid
 x = np.linspace(0, d, N+1)
 
 u = np.sin(x)
@@ -54,6 +54,6 @@ def update(frame):
     return (line,)
 
 # Create the animation
-anim = FuncAnimation(fig, update, frames=num_steps, interval=100, blit=True)
+anim = FuncAnimation(fig, update, frames=num_frames, interval=100, blit=True)
 
 plt.show()

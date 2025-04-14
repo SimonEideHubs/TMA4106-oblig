@@ -5,11 +5,12 @@ from numpy.linalg import solve
 
 
 # parametre for metoden (Set rimelige verdier for rimelige resultater)
-N = 500               # number of subintervals => we have N+1 points
-h = 1.0 / N          # spatial step
-k = 0.00001            # time step
-num_steps = 1000      # how many time steps we animate
-x = np.linspace(0, 1, N+1)
+d = np.pi
+N = 30                      # punkter i rom
+h = d / N                   # punkter i tid
+k = 0.001                   # steglengde i tid
+num_frames = 200            # antall steg i tid
+x = np.linspace(0, d, N+1)
 
 # Initial condition: u(x,0) = sin(x)
 u = np.sin(x)  # array storing current solution
@@ -38,7 +39,7 @@ M2 = I_ - 0.5 * lam * A
 # --- Set up for plotting/animation ---
 fig, ax = plt.subplots()
 line, = ax.plot(x, u, label="Crank–Nicolson solution")
-ax.set_xlim(0, 1)
+ax.set_xlim(0, d)
 ax.set_ylim(-1.1, 1.1)
 ax.set_xlabel("x")
 ax.set_ylabel("u(x,t)")
@@ -68,5 +69,5 @@ def update(frame):
     line.set_ydata(u)
     return (line,)
 
-anim = FuncAnimation(fig, update, frames=num_steps, interval=80, blit=True)
+anim = FuncAnimation(fig, update, frames=num_frames, interval=80, blit=True)
 plt.show()

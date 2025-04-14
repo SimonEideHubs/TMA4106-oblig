@@ -4,11 +4,12 @@ from matplotlib.animation import FuncAnimation
 
 
 # parametre for metoden (Set rimelige verdier for rimelige resultater)
-d = 3
-N = 500             # Romlige punkter
-h = d / N        # Romlig steglengde
-k = 0.00001         # Tidssteg
-num_steps = 2000   # Antall tidssteg å kjøre
+d = np.pi
+N = 30                      # punkter i rom
+h = d / N                   # punkter i tid
+k = 0.001                   # steglengde i tid
+num_frames = 200            # antall steg i tid
+x = np.linspace(0, d, N+1)
 
 # Sjekke stabilitet for metoden
 if k > h**2 / 2:
@@ -50,6 +51,6 @@ ax.legend()
 
 
 
-anim = FuncAnimation(fig, update, frames=num_steps, interval=1, blit=True)
+anim = FuncAnimation(fig, update, frames=num_frames, interval=1, blit=True)
 # anim.save('1D varmelikning - Eksplisitt Euler.mp4', fps=30, extra_args=['-vcodec', 'libx264']) # Bare kjør når det trengs å lagres, det tar en del tid
 plt.show()
