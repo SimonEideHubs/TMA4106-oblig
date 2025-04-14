@@ -51,3 +51,21 @@ Varmelikningen estimeres her med tre forskjellige metoder:
 
 ### Oppgave 4
 
+Data beregnes og animeres, men det er lite fornuftig å tyde bare fra dette. Noe fornuftig nevnes når data sammenliknes til slutt. \
+![alt text](https://github.com/SimonEideHubs/TMA4106-oblig/blob/master/oppg4.gif?raw=true)
+Konstanterer uansett at denne beregningen er ustabil dersom det er mange punkter relativt til tiddsteget:
+
+
+### Oppgave 5
+Det noteres at det tok vesentlig lengre tid å beregne dette sammenliknet med den enkle eksplisitte beregningen. \
+![alt text](https://github.com/SimonEideHubs/TMA4106-oblig/blob/master/oppg5.gif?raw=true)
+
+### Oppgave 6
+Tok omtrent like lang tid for å beregne denne som den implisitte formelen. \
+![alt text](https://github.com/SimonEideHubs/TMA4106-oblig/blob/master/oppg6.gif?raw=true)
+
+## Sammenlikning
+
+Det er vanskelig å si stort om ytelsen til hver av disse ved å bare plotte dem side om side, siden ytelsen er god nok til å se de store avvikene. Det var lettere å plotte avvik fra den ønskede verdien for å fremheve ytelsen til hver av dem. Med 30 punkter og tidssteg på 0.001 ser vi følgende: \
+![alt text](https://github.com/SimonEideHubs/TMA4106-oblig/blob/master/animation.gif?raw=true)
+Her presterer faktisk den eksplisitte metoden og da den enkleste metoden best. Den implisitte avviker mest, men Crank-Nocolson får korrigert noe av det verste avviket fra den implisitte metoden. Derimot vil såklart den eksplisitte metoden bryte ned ved høyere punktoppløsninger, så den er ikke like pålitelig.
