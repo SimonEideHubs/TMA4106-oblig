@@ -34,5 +34,20 @@ På dette punktet er det første plottet nesten nytteløst. I absolutte verdier 
 
 ## Oppgave 4-6: Varmelikningen estimert med forskjellige metoder
 
+Den 1-domensjoneller varmelikningen er relativt simpel og uttrykker egentlig bare at skarpe gradienter jevnes ut. Dette avhenger egentlig også litt av materialegenskaper etc, men det er ikke poenget her. Vi setter også randkrav, som her bare er null i begge ender. Dette kunne vært anderledes om en kilde var satt på den ene siden, men dette er igjen ikke poenget her. Deretter settes en startsposisjon som kommer til å gjevne seg ut over tid, frem til all varme er jevnt fordelt. SIden randkravene her er null i begge ender vil det bety at temperaturen går mot null overalt. Om det er ønskelig eller realistisk å finne en analytisk løsning er det mulig å finne gode estimater ved å diskretisere både tid og rom og estimere verdiene for alle punktene for alle tidene. Dette er hovedsaklig gunstig på grunn av moderne datamaskiner som kan kverne millioner av kalkulasjoner i sekundet. Dette tillater også gode - om enn ikke perfekte - modelleringer av kompliserte scenarioer. Dette brukes for eksempel mye i utvikling av fotoniske integrerte kretser, der "Finite-difference Time Domain" (FDTD) bruker for å observere og bekrefte funskjonen til en struktur. 
+
+Varmelikningen estimeres her med tre forskjellige metoder:
+- Eksplisitt - Uttrykket for den neste verdien i et punkt er bare basert på tidligere verdier i dette punktet samt naboverdiene. Dette kan beregnes direkte: \
+    $u_i^{n+1}=u_i^n+\frac{k}{h^2}(u_{i+1}^n-2u_i^n+u_{i-1}^n)$
+  
+- implisitt - Uttrykket for den neste verdien i punktet inneholder seg selv og er derfor "Implisitt" definert. Det vil si at den fremtidige verdien er "Gjemt" i noen matrise-operasjoner: \
+    $u_i^n = \left(1+2\lambda\right)u_i^{n+1}-\lambda u_{i+1}^{n+1}-\lambda u_{i-1}^{n+1}$ \
+    $(I+\lambda A)\mathbf{u}^{n+1}=\mathbf{u}^n$
+  
+- Crank-Nicolson - Noe analogt med sentraldifferansen bruker denne metoden gjennomsnittet av steg for å balansere ut ugjevnheter fra enkeltsteg. På denne måten blir resultatet ganske likt med den implisitte metoden, men også       litt hermende av sentraldifferansen: \
+    $ (I+\frac{\lambda}{2}A)u^{n+1}=(I-\frac{\lambda}{2}A)u^n$
+
+
+
 ### Oppgave 4
 
